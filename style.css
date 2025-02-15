@@ -1,0 +1,256 @@
+/* variables */
+:root{
+    --width100: 100%;
+    --height100: 100%;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background: linear-gradient(#111, #222);
+    height: 100vh;
+    width: var(--width100) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+
+body::after{
+    content: '';
+    width: var(--width100);
+    height: var(--height100);
+    position: absolute;
+    background: red;
+    z-index: -1;
+    clip-path: circle(40% at right 70%);
+    animation: circle 2s ease 0.2s 1 backwards;
+}
+
+@keyframes circle{
+    from{
+        transform: translateX(50%);
+        opacity: 0;
+        
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.container{
+    width:80% ;
+    height: 80% ;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    border-radius: 20px;
+    animation: con 2.7s ease 0.2s 1 backwards;
+}
+
+@keyframes con{
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+nav .logo{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+nav ul li{
+    display: inline-block;
+    margin: 0 19px;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+nav ul li a:hover{
+    color: #ff1a1a;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+}
+
+.content .text{
+    color: #fff;
+    width: 40%;
+    position: relative;
+    bottom: 50px;
+}
+.content .text h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.content .text p{
+    font-size: 18px;
+    line-height: 25px;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+.content .image{
+    width: 40%;
+
+}
+
+.content .image img{
+    width: 400px;
+}
+
+.button{
+    display: flex;
+    flex-direction: column;
+}
+
+.button button{
+    text-align: center;
+    width: 70px;
+    height: 30px;
+    font-size: 14px;
+    font-family: sans-serif;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    background: white;
+    border-radius: 10px;
+    transition: all .7s ;
+}
+
+.button button:hover{
+    background: #ff1a1a;
+    border: none;
+    color: #fff;
+    scale: 1.1;
+}
+.button button:active{
+    animation: btn 0.2s ease-out 1 ;
+}
+
+@keyframes btn{
+    0%{
+        scale: 1.1;
+    }
+    50%{
+        scale: 1.05;
+    }
+    100%{
+        scale: 1.1;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 1150px) {
+    @keyframes con{
+        from{
+            transform: translateY(-100%) ;
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    @keyframes circle{
+        from{
+            transform: translateY(30%) ;
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+
+}
+
+@media (min-width: 701px) and (max-width: 949px){
+    .content, nav{
+        flex-direction: column;
+        justify-content: center;
+        /* margin-top: 22px; */
+    }
+    .content .text, .content .image{
+        text-align: center;
+        
+        width: 80%;
+    }
+    .button button{
+        align-items: center;
+        margin: 0 auto;
+    
+    }
+    .content .image img{
+        width: 277px;
+    }
+    body::after{
+        clip-path: circle(40% at bottom);
+    }
+}
+
+@media (max-width: 700px){
+    .content, nav{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .content .text, .content .image{
+        width: 100%;
+        text-align: center;
+    }
+    body::after{
+        clip-path: circle(30% at bottom);
+    }
+    .button button{
+        text-align: center;
+        align-items: center;
+        margin: 0 auto;
+        
+    }
+    .content .image img{
+        align-content: center;
+        position: relative;
+        margin-bottom: 19px;
+        width: 240px;
+    }
+    .content .text h2 div{
+        font-size: 22px;
+    }
+}
